@@ -2,7 +2,6 @@ var app = require('express')();
 var http = require('http').Server(app);
 
 app.get('/', function(req, res){
-  //console.log('sending response');
   res.send('<h1>Hello world</h1>');
 });
 
