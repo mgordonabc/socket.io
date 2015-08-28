@@ -11,6 +11,11 @@ io.on('connection', function(socket){
     io.emit('chat message', msg);
     console.log('message: ' + msg);
   });
+  
+  socket.on('dashboard message', function(msg){
+    io.emit('dashboard message', msg);
+    console.log('dashboard message: ' + msg);
+  });
 });
 
 http.listen(3000, function(){
