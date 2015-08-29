@@ -4,6 +4,8 @@ var io = require('socket.io')(http);
 
 var user_count = 0;
 
+user_count = user_count + 1;
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
@@ -11,7 +13,6 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   
   //increase the number of users and send the count 
-  user_count = user_count + 1;
   io.emit('dashboard message', user_count);
   
   //send chat msg 
