@@ -12,10 +12,16 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   
+  //send chat member list 
+  socket.on('user authentication', function(user_name){
+    user_names = user_names + "," + user_name;
+    io.emit('dashboard message', user_names);
+    console.log('user_name: ' + user_names);
+  });
+  
   //increase the number of users and send the count 
   user_count = user_count + 1;
-  io.emit('dashboard message', user_count);
-  
+
   //send chat msg 
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
