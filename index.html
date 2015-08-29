@@ -35,14 +35,14 @@
       var socket = io();
       $('#frm_chat').submit(function(){
         socket.emit('chat message', $('#m').val());
-        alert("chat message");
+        alert("chat message"+$('#m').val());
         $('#m').val('');
         return false;
       });
       
       $('#frm_login').submit(function(){
         socket.emit('user authentication', $('#user_name').val());
-        alert("user authentication");
+        alert("user authentication"+$('#user_name').val());
         return false;
       });      
       
