@@ -21,7 +21,11 @@
   <body>
     <div id="dashboard"></div>
     <ul id="messages"></ul>
-    <form action="">
+    <form action="" id="frm_login">
+       <input id="user_name" /><button>Send</button>
+     </form>
+    
+    <form action=""  id="frm_chat">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
     
@@ -29,11 +33,18 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
-      $('form').submit(function(){
+      $('frm_login').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
+      
+      $('frm_chat').submit(function(){
+        socket.emit('user authentication', $('#m').val());
+        $('#m').val('');
+        return false;
+      });      
+      
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
       });
