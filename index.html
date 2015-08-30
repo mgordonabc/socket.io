@@ -50,7 +50,7 @@
       
       socket.on('dashboard message', function(msg){
         console.log(msg);
-        $('#dashboard').replaceWith( msg );
+        $('#dashboard').innerHTML = msg;
       });      
       
     </script>
