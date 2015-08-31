@@ -11,6 +11,8 @@ app.get('/', function(req, res){
 
 app.get('/offers/', function(req, res){
   var offers = "{'offers':[{'offerid':1,'expiration_date':'2015-12-12','url':'http://www.yahoo.com','qr_code_url':'http://www.yahoo.com/qr_code.jpg',    'offer_value':25000,'detail_text':'','detail_html':''}]}";
+  
+  res.writeHead(200, {'Content-Type': 'text/plain'});
   res.send(offers);
 });
 
